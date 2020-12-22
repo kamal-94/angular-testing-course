@@ -21,8 +21,10 @@ steps:
     npm install -g @angular/cli
     npm install
     ng build --prod
-  displayName: 'npm install and build'
-- task: WhiteSource Bolt@20
+    ng test
+  displayName: 'npm install and build and test'
+
+
     
 
 - task: PublishBuildArtifacts@1
