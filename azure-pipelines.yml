@@ -23,10 +23,38 @@ steps:
     ng build --prod
     ng test
   displayName: 'npm install and build and test'
-
-
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    customCommand: 'run test -- --watch=false --code-coverage'
     
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/cobertura/coverage.xml'
+    failIfCoverageEmpty: true
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/TEST-*.xml'
+    testRunTitle: 'Angular'
 
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    customCommand: 'run lint --  --format=stylish'
+
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    customCommand: 'run e2e'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '"**/junit*.xml"'
+    searchFolder: '$(System.DefaultWorkingDirectory)/e2e'
+    testRunTitle: 'Angular_E2E'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: 'dist'
