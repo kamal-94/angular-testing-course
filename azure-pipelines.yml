@@ -1,5 +1,6 @@
 # Node.js with Angular
 
+
 # Build a Node.js project that uses Angular.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
@@ -34,6 +35,8 @@ steps:
   inputs:
     command: 'custom'
     customCommand: 'run-script test'
+
+- task: SonarCloudAnalyze@1  
 
 - task: SonarCloudPublish@1
   inputs:
