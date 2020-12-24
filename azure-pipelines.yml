@@ -27,7 +27,9 @@ steps:
   inputs:
     command: 'custom'
     customCommand: 'run-script test'
-    
+
+- task: WhiteSource Bolt@20
+
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'JUnit'
