@@ -22,8 +22,9 @@ steps:
   inputs:
     SonarCloud: 'SonarCase'
     organization: 'kamalrajd200'
-    scannerMode: 'CLI'
-    configMode: 'file'
+    scannerMode: 'MSBuild'
+    projectKey: 'angular.testing'
+    projectName: 'Angularscan'
 
 - script: |
     npm install -g @angular/cli
