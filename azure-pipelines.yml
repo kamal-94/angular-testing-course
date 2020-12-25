@@ -18,13 +18,7 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-- task: SonarCloudPrepare@1
-  inputs:
-    SonarCloud: 'SonarCase'
-    organization: 'kamalrajd200'
-    scannerMode: 'MSBuild'
-    projectKey: 'angular.testing'
-    projectName: 'Angularscan'
+
 
 - script: |
     npm install -g @angular/cli
@@ -36,13 +30,6 @@ steps:
   inputs:
     command: 'custom'
     customCommand: 'run-script test'
-
-- task: SonarCloudAnalyze@1  
-
-- task: SonarCloudPublish@1
-  inputs:
-    pollingTimeoutSec: '300'
-
 
 
 - task: PublishTestResults@2
