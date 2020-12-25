@@ -46,9 +46,10 @@ steps:
 
 
 - task: PublishTestResults@2
+  condition: succeededOrFailed()
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: '**/TEST-*.xml'
+    testResultsFiles: '**/TESTS-*.xml'
     testRunTitle: 'Angular'
 
 
