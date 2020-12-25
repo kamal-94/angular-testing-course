@@ -31,6 +31,11 @@ steps:
     command: 'custom'
     customCommand: 'run-script test'
 
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    customCommand: 'run-script test:coverage'
+
 
 - task: PublishTestResults@2
   inputs:
