@@ -30,7 +30,7 @@ steps:
   inputs:
     command: 'custom'
     customCommand: 'run-script junit'
-  displayName: 'Install junit'
+  displayName: 'Install junit reporter'
 
 - task: Npm@1
   inputs:
