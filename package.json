@@ -9,6 +9,7 @@
     "build": "ng build",
     "test": "ng test --watch=false",
     "test:coverage": "ng test --code-coverage --watch=false",
+    "junit": "npm install karma-junit-reporter --save-dev",
     "lint": "ng lint",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
