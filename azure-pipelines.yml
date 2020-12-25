@@ -47,8 +47,8 @@ steps:
 - task: PublishCodeCoverageResults@1
   inputs:
     codeCoverageTool: 'Cobertura'
-    summaryFileLocation: 'src/coverage/cobertura-coverage.xml'
-    reportDirectory: 'src/coverage'
+    summaryFileLocation: 'coverage/cobertura-coverage.xml'
+    reportDirectory: 'coverage'
   displayName: 'Publish code coverage' 
 
 - task: PublishTestResults@2
