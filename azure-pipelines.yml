@@ -29,12 +29,20 @@ steps:
 - task: Npm@1
   inputs:
     command: 'custom'
+    customCommand: 'run-script junit'
+  displayName: 'Install junit'
+
+- task: Npm@1
+  inputs:
+    command: 'custom'
     customCommand: 'run-script test'
+  displayName: 'Run test'
 
 - task: Npm@1
   inputs:
     command: 'custom'
     customCommand: 'run-script test:coverage'
+  displayName: 'Run test-coverage'
 
 
 - task: PublishTestResults@2
