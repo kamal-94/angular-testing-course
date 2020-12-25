@@ -44,6 +44,12 @@ steps:
     customCommand: 'run-script test:coverage'
   displayName: 'Run test-coverage'
 
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: 'src/coverage/cobertura-coverage.xml'
+    reportDirectory: 'src/coverage'
+  displayName: 'Publish code coverage' 
 
 - task: PublishTestResults@2
   condition: succeededOrFailed()
@@ -51,6 +57,7 @@ steps:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/TESTS-*.xml'
     testRunTitle: 'Angular'
+
 
 
 - task: PublishBuildArtifacts@1
