@@ -49,6 +49,10 @@ steps:
     customCommand: 'run-script test:coverage'
   displayName: 'Run test-coverage'
 
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    customCommand: 'run-script e2e'
 - task: WhiteSource Bolt@20
 
 - task: PublishCodeCoverageResults@1
