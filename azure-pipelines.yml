@@ -56,6 +56,17 @@ steps:
     codeCoverageTool: 'Cobertura'
     summaryFileLocation: 'build/reports/coverage/coverage/cobertura-coverage.xml'
 
+- task: BuildQualityChecks@8
+  inputs:
+    checkWarnings: true
+    warningFailOption: 'fixed'
+    warningThreshold: '2'
+    checkCoverage: true
+    coverageFailOption: 'build'
+    coverageType: 'branches'
+    forceCoverageImprovement: true
+    coverageUpperThreshold: '60'
+    ignoreDecreaseAboveUpperThreshold: false
 - task: PublishTestResults@2
   condition: succeededOrFailed()
   inputs:
